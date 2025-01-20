@@ -1,0 +1,48 @@
+\documentclass[11pt,twoside=semi,openright,numbers=noenddot,titlepage=false]{scrbook}
+
+\input{chambapreamble}
+\input{chambamacros}
+
+\title{tiscachamba}
+\subtitle{\url{}}
+\author{Bruno González}
+\date{\today}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+
+\bgroup
+\fboxrule=4pt
+\noindent\fbox{\includegraphics[width=\textwidth]{cover.jpg}}
+\egroup
+\newpage
+
+\setcounter{chapter}{-1} % avoid sales pitch collision
+
+% I DON'T want to reset the page number for mainmatter,
+% so save it to restore later
+\cleardoublepage
+\newcounter{temppage}
+\setcounter{temppage}{\value{page}}
+\mainmatter
+\setcounter{page}{\value{temppage}}
+
+\part{Arrancando}
+
+\include{olyintro}
+\include{strat}
+
+\part{Álge}
+
+
+\part{Combi}
+
+\part{Geo}
+
+\part{Núms}
+
+\backmatter
+
+\end{document}
