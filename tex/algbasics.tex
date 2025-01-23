@@ -1,0 +1,329 @@
+\chapter{Fundamentos Algebráicos}
+
+Si me preguntasen: "¿Cuál es el área que se cuela más en las 
+otras áreas de olimpiada. Sin dudarlo, el álgebra sería mi 
+respuesta. Es un hecho, nos guste o no. 
+Utilizar los principios del álgebra es muuuyy frecuente 
+en cualquier problema de olimpiada (incluso puedes aplicarle 
+a un problema de geo una metamorfosis que lo convierte en 
+álgebra pura). Por esto, hay que atornillar en nuestro 
+cerebro algunos principios y leyes básicas del álgebra 
+(tampoco son tan difícile de recordar eh). ¡También debes dominar 
+las ecuaciones como un experto!
+
+En el álgebra se utilizan símbolos (llamados variables) que por 
+lo general son letras del alfabeto para representar números cuyo 
+valor no es "explícito". Puede que ser fijo o puede no serlo.
+
+Nosotros también podemos usar las variable a nuestra 
+conveniencia sustituyendo un valor que desconocemos por una 
+letra.  
+
+\begin{example}
+Expresa un número más tres en lenguaje algebraico 
+\end{example}
+
+La expresión que buscamos es:
+\[x+3\]
+
+Es muy importante dominar esta 
+intuición para poder traducir los problemas del 
+español al álgebra y así resolverlos. 
+
+Trabajar con lenguaje algebráico al inicio es muy confuso, 
+pues la forma en la que se comunican los números es anormal 
+para nosotros. 
+
+\section{Sobre la Existencia de las Cosas}
+
+Vamos a filosofear un poco.
+
+
+Ahora si, en la siguiente sección 
+empezemos a revisar los fundamentos. 
+¿Listo para la abstracción?
+
+\section{Definiciones Elementales}
+
+El conjunto de números que se utiliza para contar se 
+le conoce como el conjunto de \textbf{números naturales} 
+y se denota por: 
+
+\[\NN = \{1, 2, 3, \dots\}\]
+
+Rara vez se suele considerar al $0$ dentro de los naturales 
+pero yo jamás lo haré (y en un examen te lo deben especificar, 
+igual si te queda la duda, ¡siempre puedes preguntar!).
+
+La operación básica entre los números es la \textbf{suma} 
+cuyo operador es $+$.
+
+\begin{definition}[Neutro aditivo]
+    Aquel número que al sumarse con cualquier otro no modifica 
+    el valor de este último.
+\end{definition}
+
+\begin{question}
+    ¿Qué número es el neutro aditivo?
+\end{question}
+
+\begin{definition}[Inverso aditivo]
+    Para cualquier número, su inverso aditivo es el 
+    número que se le debe sumar para obtener como resultado 
+    cero.
+\end{definition}
+
+Nótese que el inverso aditivo de un número natural siempre es 
+negativo, es decir, no está dentro del conjunto de los números 
+naturales. Por esto debemos extender el conjunto de los 
+números naturales agregándole sus inversos aditivos 
+y el neutro aditivo, a este conjunto se le conoce como el conjunto 
+de los números enteros y se denota por:
+
+\[\ZZ = \{\dots, -3, -2, -1, 0, 1, 2, 3, \dots\}\]
+
+\begin{definition}[Operaciones inversas]
+    A dos operaciones se les conoce como inversas 
+    si cuando se le aplican a un número 
+    (en algún orden) el número inicial no cambia.
+\end{definition}
+
+Cabe recalcar que a la operación inversa a la suma se le conoce 
+como \textbf{resta}. Cada vez que restamos un número, realmente le 
+estamos sumando el inverso aditivo del números. El operador 
+de la resta es $-$.
+
+Con forme empezaron a usarse las matemáticas formalmente, 
+se empezaron a presentar varias operaciones de la siguiente forma: 
+"Un número $a$ es sumado $b$ veces." Por conveniencia, 
+decidieron darle nombre a esta operación; le llamaron 
+\textbf{multiplicación} y se le otorgó el operador 
+$\times$, $\cdot$, $(\dots)(\dots)$.
+
+\[ab=\underbrace{a+a+\dots+a+a}_{b}\]
+
+\begin{definition}[Neutro multiplicativo]
+    Aquel número que al multiplicarse con cualquier otro no 
+    modifica el valor de este último.
+\end{definition}
+
+\begin{question}
+    ¿Qué número es el neutro multiplicativo?
+\end{question}
+
+\begin{definition}[Inverso multiplicativo]
+    Para cualquier número, su inverso multiplicativo es el 
+    número por el que se debe multiplicar para obtener como 
+    resultado uno.
+\end{definition}
+
+Nótese que el inverso multiplicativo de un número entero 
+nunca es entero, es en realidad una fracción. Ante la 
+existencia de las fracciones se creó un nuevo conjunto 
+que abarca los enteros y las fracciones, a este conjunto 
+se le conoce como el conjunto de los números racionales y 
+se denota por 
+
+\[\QQ = \{\frac{p}{q}:p,q \in \ZZ, q \neq 0\} \]
+
+Cabe recalcar que a la operación inversa a la multiplicación se le conoce 
+como \textbf{división}. Cada vez que dividimos entre un número, 
+realmente estamos multiplicando por el inverso aditivo del número. 
+El operador de la división es $\frac{(...)}{(...)}$, $\div$, /.
+
+Antes de continuar, revisemos dos propiedades elementales 
+de la suma y la multiplicación:
+
+\textbf{La suma y producto son operaciones conmutativas.} 
+$a+b=b+a$ y $ab=ba$.
+
+Esto es la famosísima:
+
+\begin{moral}
+    El orden de los factores no altera el producto
+\end{moral}
+
+\textbf{La suma y producto son operaciones asociativas.} 
+$(a+b)+c=a+(b+c)$ y $(ab)c=a(bc)$.
+
+Sigamos.
+
+Con forme empezaron a usarse aun más las matemáticas formalmente, 
+se empezaron a presentar varias operaciones de la siguiente forma: 
+"Un número $a$ es multiplicado $x$ veces." Por conveniencia, 
+decidieron darle nombre a esta operación; le llamaron 
+\textbf{elevar a la $x$-ésima potencia} y se denota $a^x$.
+
+\[a^x=\underbrace{a\times a\times \dots \times a \times a}_x\]
+
+Es muy importante recalcar que elevar a la $x$-ésima potencia  
+no es una operación conmutativa ni asociativa. 
+Lo que si tiene (similarmente a la suma y multiplicación) es 
+una operación inversa que es \textbf{sacar la raiz $n$-ésima} 
+y se denota $\sqrt[x]{a}$. 
+Esto es sacar un número que al multiplicarse por si mismo $n$ 
+veces da como resultado lo que está dentro de la raíz. 
+
+Hay varios números que no pertenecen al conjunto de las 
+racionales, varias raíces no lo hacen, por dar un ejemplo. 
+Sin embargo, todos los números racionales se pueden 
+representar como puntos en la recta numérica. Al 
+conjunto de los números que se pueden expresar como puntos en 
+la recta numérica pero no son racionales se le conoce como el 
+conjunto de los números irracionales y se denota por $\QQ^c$.
+
+Más allá, a la unión de estos dos conjuntos se le conoce como 
+el conjunto de los números reales y se denota Por
+
+\[\RR = \QQ \cup \QQ^c\]
+
+De momento puedes ver a la recta numérica como el eje $x$ del 
+plano cartesiano.
+
+Dados los conjuntos definidos tenemos las siguientes contenciones 
+
+\[\NN \subset \ZZ \subset \QQ \subset \RR\]
+
+\begin{question}
+¿Existe algún número que no pertenezca a ninguno de los 
+conjuntos que se han mencionado?
+\end{question}
+
+\section{Constitución de los Estados Unidos Algebráicos}
+
+Toda nación soberana se rige por normas. Veamos las principales 
+leyes para asegurar que pases una agradable estadía en el 
+país del Álgebra.
+
+\subsection{Leyes de los Signos}
+
+\textbf{... en sumas y restas.} Si son signos iguales se suman 
+y se pone el signo que tienen ambos. Si son signos diferentes, 
+se restan y se pone el signo de la cantidad mayor.
+
+\begin{example}
+    $28+11 =$ ?;
+    $-9-12 =$ ?;
+    $4-1 =$ ?;
+    $-57+5 =$ ?.
+\end{example}
+
+$39$; $-21$; $3$; $-52$. 
+
+\textbf{... en multiplicaciones y divisiones.} Si son signos 
+iguales, el signo del resultado será positivo. Si son signos 
+diferentes, el signo del resultado será negativo.
+
+\begin{example}
+    $28\times 11 =$ ?;
+    $-9\times -12 =$ ?;
+    $4\times -1 =$ ?;
+    $-57\times 5 =$ ?.
+\end{example}
+
+$308$; $108$; $-4$; $-285$. 
+
+Una forma fácil de entenderla las leyes de los signos en 
+multiplicaciones y divisiones es la siguiente:
+
+\begin{figure}
+    \centering
+    \includegraphics[height=8cm]{signlaw.jpg}
+    \caption{Cuida con quien te relacionas.}
+\end{figure}
+
+\subsection{Jerarquía de Operaciones}
+
+\begin{enumerate}
+    \ii Al evaluar una expresión, primero hay que hacer las 
+    operaciones dentro de los signos de agrupación (paréntesis (), 
+    corchetes [] y llaves${}$), si están unos dentro de otros, 
+    se evaluan los paréntesis "más encerrados" 
+    hasta llegar a los paréntesis "de afuerita";
+
+    \ii después, son evaluadas las potencias y raíces;
+
+    \ii continúa con las multiplicaciones y las divisiones;
+
+    \ii al final, se hacen las sumas y las restas.
+\end{enumerate}
+
+\begin{example}
+    Evalua: 
+    \[2\cdot\left(2+3\cdot\left[4+5\cdot\left(1+2\right)^2+1\right]\right) \]
+\end{example}
+
+Se resuelve primero la suma entre los paréntesis de dentro ($3$); 
+el resultado se eleva al cuadrado ($9$); 
+se multiplica por 5 ($45$); 
+se continua con las operaciones del corchete sumándole 4 y 1 ($50$);
+se multiplica por tres ($150$);
+se le suma 2 que es la última operación para quitar los paréntesis ($152$);
+finalmente, se multiplica por 2 dándonos como resultado $304$.
+
+\begin{figure}
+    \centering
+    \includegraphics[height=8cm]{opjerarchy.jpg}
+    \caption{IMPORTANTÍSIMO.}
+\end{figure}
+
+\subsection{Ley Distributiva}
+
+\[a(b+c) = ab+ac\]
+
+Una forma sencilla de verla es yendonos al origen de la 
+multiplicación que ya revisamos.
+
+\subsection{Operaciones con Fracciones}
+
+Verémos métodos sencillos de simplificar fracciones.
+
+\textbf{El factor común}
+\[\frac{ak}{bk} = \frac{a}{b}\]
+
+Es como si a un número lo multiplicaras por $k$ y luego lo 
+dividieses entre $k$, evidentemente al ser operaciones inversas 
+resulta en lo mismo y podemos cancelar las $k$'s sin inconvenientes.
+
+\textbf{Suma y Resta}
+
+\[\frac{a}{bk}+\frac{c}{dk} = \frac{ad+cb}{bdk}\]
+
+Usualmente se escoge $k$ como el mínimo común múltiplo de los 
+denomminadores. Aunque si gustas $k$ puede ser $1$ y te queda
+
+\[\frac{a}{b}+\frac{c}{d} = \frac{ad+cb}{bd}\]
+
+\textbf{Multiplicación.}
+\[\frac{a}{b} \times \frac{c}{d} = \frac{ac}{bd}\]
+
+La división es equivalente pero la revisaremos a parte por 
+el método de visualizarla fácilmente de la tortilla.
+
+\textbf{División} (\textit{La famosa ley de la tortilla}) \textbf{.}
+\[\frac{\frac{a}{b}}{\frac{c}{d}} = \frac{a}{b} 
+\times \frac{d}{c} = \frac{ad}{bc}\]
+
+Extremos con extremos y medios con medios.
+
+\subsection{Leyes de los Exponentes}
+
+\begin{enumerate}
+    \ii $a^1 = a$
+    \ii $a^mb^m = (ab)^m$
+    \ii $\frac{a^m}{b^m} = \left(\frac{a}{b}\right)^{m}$
+    \ii $a^m \times a^n = a^{m+n}$
+    \ii $\frac{a^m}{a^n} = a^{m-n}$
+    \ii $a^0 = 1$
+    \ii $\left(\frac{a}{b}\right)^{-m} = \left(\frac{b}{a}\right)^{m}$
+    \ii $a^{\frac{n}{m}} = \sqrt[m]{a^n}$   
+\end{enumerate}
+
+Los siguientes dos resultados son muy útiles y se obtienen 
+directo de las leyes 7 y 8 de los exponentes, análogamente
+
+\[a^{-m} = \frac{1}{a^m}\]
+\[a^{\frac{1}{m}} = \sqrt[m]{a}\]
+
+Mucho ojo con cumplirlas al pie de la letra eh, luego te meten 
+al botellón.
