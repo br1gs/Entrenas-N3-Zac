@@ -34,13 +34,7 @@ Trabajar con lenguaje algebráico al inicio es muy confuso,
 pues la forma en la que se comunican los números es anormal 
 para nosotros. 
 
-\section{Sobre la Existencia de las Cosas}
-
-Vamos a filosofear un poco.
-
-
-Ahora si, en la siguiente sección 
-empezemos a revisar los fundamentos. 
+Empezemos a revisar los preliminares. 
 ¿Listo para la abstracción?
 
 \section{Definiciones Elementales}
@@ -81,6 +75,10 @@ y el neutro aditivo, a este conjunto se le conoce como el conjunto
 de los números enteros y se denota por:
 
 \[\ZZ = \{\dots, -3, -2, -1, 0, 1, 2, 3, \dots\}\]
+
+\begin{moral}
+    El $0$ no es ni positivo ni negativo, es neutro.
+\end{moral}
 
 \begin{definition}[Operaciones inversas]
     A dos operaciones se les conoce como inversas 
@@ -130,6 +128,13 @@ Cabe recalcar que a la operación inversa a la multiplicación se le conoce
 como \textbf{división}. Cada vez que dividimos entre un número, 
 realmente estamos multiplicando por el inverso aditivo del número. 
 El operador de la división es $\frac{(...)}{(...)}$, $\div$, /.
+
+La división es una operación con las que se debe tener cuidado, 
+pues 
+
+\begin{moral}
+    NO PUEDES DIVIDIR ENTRE $0$.
+\end{moral}
 
 Antes de continuar, revisemos dos propiedades elementales 
 de la suma y la multiplicación:
@@ -267,13 +272,91 @@ finalmente, se multiplica por 2 dándonos como resultado $304$.
     \caption{IMPORTANTÍSIMO.}
 \end{figure}
 
-\subsection{Ley Distributiva}
+\begin{exercise}
+    Simplifica jerárquicamente.
+    \begin{enumerate}
+        \item $-3 + 4 \cdot (-2) - (-5)$
+        \item $\frac{-18 + 6 \cdot 5}{-3}$
+        \item $(-4)^2 - (3 \cdot -2) + 8 \div (-2)$
+        \item $\sqrt{16 - (-8 \div 4) \cdot (-2)}$
+        \item $4 \cdot \left(-3 + 2 \cdot (-2)\right) - (-7)$
+        \item $\frac{-3^2 + (-6)^2}{-2 \cdot (-1)^3}$
+    \end{enumerate}
+\end{exercise}
+
+\subsection{Distribución y Factorización}
+
+\begin{example}
+    Fer tiene 5 gatos y 7 perros. Cada gato y cada perro tienen 
+    4 patas.
+
+    \begin{enumerate}
+        \ii ¿Cuántas patas en total tienen los gatos de Fer?
+        \ii ¿Cuántas patas en total tienen los perros de Fer?
+        \ii ¿Cuántas patas en total tienen los animales de Fer?
+    \end{enumerate}
+\end{example}
+
+\begin{soln}
+    Cuenta primero los animales, son $5+7 = 12$. Cada animal 
+    tiene $4$ patas $\implies$ son $12\times 4$ patas en total.
+\end{soln}
+
+\begin{soln}
+    Cuenta las patas por separado, son $5\times 4 = 20$ y $7\times 4 = 28$. 
+    Sumamos ambos y nos dan $48$ patas en total.
+\end{soln}
+
+Si ponemos ambos métodos juntos vemos que 
+\[(5+7) \times 4 = 5\times 4 + 7 \times 4\].
+
+Eso es un ejemplo de la
+
+\textbf{Ley distributiva.}
 
 \[a(b+c) = ab+ac\]
 
 Una forma sencilla de verla es yendonos al origen de la 
 multiplicación que ya revisamos.
 
+Un caso especial es cuando $a=-1$. Ahí, podemos simplemente 
+escribir $-(b+c)$ Cuando expandemos con la Ley distributiva 
+en este caso, ¡hay que poner 
+atención a los signos!
+
+La ley distributiva también es muy útil cuando la usamos al 
+revés.
+
+\begin{example}
+    Hay $9$ hijos en la familia $Rosales$. Los padres 
+    compran $99$ peces dorados y $72$ peces ángel. Si cada 
+    hijo recibe el mismo número de peces, ¿cuántos peces recibirá 
+    cada uno?
+\end{example}
+
+\begin{soln}
+    Podríamos contar todos los peces en total y después 
+    dividirlo entre 9; pero, $99$ y $72$ son múltiplos de nueve. 
+    Por lo que podríamos dividr la cantidad de peces dorados 
+    y la cantidad de peces ángel entre nueve por separado y 
+    al final sumar ambos resultados. Por esto, cada niño 
+    recibe $11$ peces dorados y $8$ peces ángel, entonces hay un 
+    total de
+    
+    \[99+72 = 9\times (11+8) \]
+\end{soln}
+
+Si aplicamos la ley distributiva a la inversa, podemos 
+sacar un término en común como en el ejemplo anterior, 
+a esto se le llama \textbf{factorizar}.
+
+\begin{definition}[Factorizar]
+    Es el proceso de sacar un factor común de cada término 
+    en una suma y escribimos el resultado como el factor 
+    por una suma más simple 
+\end{definition}
+
+\[ab+ac = a(b+c)\]
 \subsection{Operaciones con Fracciones}
 
 Verémos métodos sencillos de simplificar fracciones.
@@ -284,6 +367,11 @@ Verémos métodos sencillos de simplificar fracciones.
 Es como si a un número lo multiplicaras por $k$ y luego lo 
 dividieses entre $k$, evidentemente al ser operaciones inversas 
 resulta en lo mismo y podemos cancelar las $k$'s sin inconvenientes.
+
+\begin{moral}
+    Cancelar solo funciona cuando el numerador y denominador 
+    son productos $\frac{a+b}{c+b} \neq \frac{a}{c}$.
+\end{moral}
 
 \textbf{Suma y Resta}
 
@@ -306,6 +394,19 @@ el método de visualizarla fácilmente de la tortilla.
 
 Extremos con extremos y medios con medios.
 
+\begin{exercise}
+    Simplifica las siguientes operaciones.
+    \begin{enumerate}
+        \ii $\frac{-3}{\frac{-6}{6}}$
+        \ii $\left(\frac{-7.5}{3}\right)\frac{6}{5}$
+        \ii $\frac{\frac{4^2}{2^2} + 1}{5^3}$
+        \ii $\sqrt{12\cdot2 + 1} + \frac{14\cdot 2 + 8}{6}$
+        \ii $2\cdot 3^4 + \frac{2\cdot 3^4}{3}$
+        \item $(3^2 \cdot 2 + 4 \cdot 5) \left( -\frac{\pi}{2} \div 4 \right) (-3\pi)$
+        \ii $1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{1+\frac{1}{1+1}}}}$
+    \end{enumerate}
+\end{exercise}
+
 \subsection{Leyes de los Exponentes}
 
 \begin{enumerate}
@@ -325,5 +426,277 @@ directo de las leyes 7 y 8 de los exponentes, análogamente
 \[a^{-m} = \frac{1}{a^m}\]
 \[a^{\frac{1}{m}} = \sqrt[m]{a}\]
 
+\begin{exercise}
+    Simplifica lo más posible.
+
+    \begin{enumerate}
+        \item $(7x y7)^0$
+        \item $a^4 \cdot a^6 \cdot a$
+        \item $(6x^{10})(3x^4)$
+        \item $(3a^2)(-5a^3)$
+        \item $(-4a^2 b^3)(-3ab)$
+        \item $\frac{x^{16}}{x^{-10}}$
+        \item $(7x^{-3}y^{-8})(2x^5y^5)$
+        \item $\frac{6x^4y^7}{12x^5y^{-8}}$
+        \item $\left(\frac{3x^2y^3}{2xy^4}\right)^3$
+        \item $\left(2a^{-2}b^3c^{-1}\right)^{-4}$
+    \end{enumerate}
+\end{exercise}
+
 Mucho ojo con cumplirlas al pie de la letra eh, luego te meten 
 al botellón.
+
+\section{Ecuaciones}
+
+Si, aun más teoría; no te preocupes, esta sección 
+es cortita.
+
+\begin{definition}[Ecuación]
+    Igualdad entre dos expresiones algebráicas que contiene 
+    al menos una incógnita
+\end{definition}
+
+Si a las dos partes de una ecuación les efectuamos la misma 
+operación, la igualdad se mantiene. Podemos ver a las 
+ecuaciones como una balanza.
+
+Si $c$ es cualquier número y $a=b$, entonces todas las 
+siguientes ecuaciones son ciertas:
+
+\begin{enumerate}
+    \ii $a+c=b+c$
+    \ii $a-c=b-c$
+    \ii $ac = bc$
+    \ii $\frac{a}{c} = \frac{b}{c}$
+    \ii $a^c = b^c$
+    \ii $\sqrt[c]{a}= \sqrt[c]{b}$
+\end{enumerate}
+
+En el punto $4$, $c$ debe ser distinta de $0$ evidentemente. 
+
+Si $a=b$, $c=d$, entonces todas las 
+siguientes ecuaciones son ciertas:
+
+\begin{enumerate}
+    \ii $a+c=b+d$
+    \ii $a-c=b-d$
+    \ii $ac = bd$
+    \ii $\frac{a}{c} = \frac{b}{d}$
+\end{enumerate}
+
+En el punto $4$, $c$ y $d$ deben ser distintos de $0$ evidentemente.
+
+\textbf{Propiedad transitiva.}
+
+Si $a=b$, $b = c \implies a = c$. 
+
+\begin{moral}
+    No hagas las operaciones más difíciles de lo que necesitan 
+    ser.
+\end{moral}
+
+Utiliza todo lo que hemos visto para facilitar los cálculos.
+
+\begin{moral}
+    Para encontrar las $n$ variables de un sistema de 
+    ecuaciones, ocupas $n$ ecuaciones no inconsistentes. 
+\end{moral}
+
+\begin{definition}[Grado de una ecuación]
+    Es dado por el mayor exponente entre las incógnitas.
+\end{definition}
+
+\subsection{Ecuaciones Lineales de una Variable}
+
+Una ecuación con grado $1$ es llamada \textit{ecuación lineal}
+
+Para resolver ecuaciones lineales de una variable, 
+despejamos la incógnita con las estrategias de manipulación 
+que hemos visto a lo largo del capítulo.
+
+\begin{example}
+    Mi hermana tiene $3$ libros menos que yo. Si ella 
+    tiene $6$ libros, ¿cuántos tengo yo?
+\end{example}
+
+\begin{soln}
+    Planteamos la ecuación $x-3 = 6 \iff x = 9$.
+\end{soln}
+
+\begin{exercise}
+    Resuelve las siguientes ecuaciones.
+    \begin{enumerate}
+        \item \( 3t + 9 = -13 \)
+        \item \( 5 - \frac{y}{7} = 19 \)
+        \item \( 8 - 3x = -6 + 2x \)
+        \item \( 2 - y + 10 + \frac{y}{2} = 3y - \frac{7}{3} + 2y \)
+    \end{enumerate}
+\end{exercise}
+
+\begin{moral}
+    La clave para resolver problemas del mundo real 
+    es convertir las palabras a matemáticas.
+\end{moral}
+
+\newpage
+
+\section{Problemas}
+
+Cada problema que resuelvas te dará el número de treboles 
+que especifica ($x \clubsuit$), ¡colecta los más que puedas!
+
+\epigraph{Todos los animales son iguales, pero algunos son 
+más iguales que otros.}
+{George Orwell, en \emph{Rebelión en la Granja}}
+
+\begin{problem}[$1 \clubsuit$]
+    Calcula el valor de \( n \) para que la igualdad 
+    \( 3^{100} 3^n = \frac{1}{9} \) sea válida.
+\end{problem}
+
+\begin{problem}[$1 \clubsuit$]
+    Calcula el valor de \( n \) para que la igualdad 
+    \( \frac{2^{100}}{2^n} = 8 \) sea válida.
+\end{problem}
+
+\begin{problem}[$1 \clubsuit$]
+    Calcula el valor de \( m \) para que la igualdad 
+    \( 4^{50} = 2^m \) sea válida.
+\end{problem}
+
+\begin{problem}[$1 \clubsuit$]
+    ¿A qué potencia hay que elevar \( 4^4 \) para 
+    obtener \( 8^8 \)?    
+\end{problem}
+
+\begin{problem}[$2 \clubsuit$]
+    En cierto planeta hay tantos días en una semana como 
+    semanas en un mes como meses en un año. Si un año tiene 
+    1331 días, ¿cuántos días tiene cada semana?
+\end{problem}
+
+\begin{problem}[$2 \clubsuit$]
+    Si \( 16^{2x} = 2^{2x+5} - 2^{2x+4} \), calcula el 
+    valor de \( x \).
+\end{problem}
+
+\begin{problem}[$2 \clubsuit$]
+    El número \( 25^{64} \cdot 64^{25} \) es el cuadrado de un 
+    entero positivo \( n \). ¿Cuál es la suma de los dígitos de 
+    \( n \)?
+\end{problem}
+
+\begin{problem}[$2 \clubsuit$]
+    En una reunión hay doble número de mujeres que de hombres y 
+    triple número de niños que de hombres y mujeres juntos. 
+    ¿Cuántos hombres, mujeres y niños hay si la reunión la 
+    componen 96 personas?
+\end{problem}
+
+\begin{problem}[$2 \clubsuit$]
+    $5$ números consecutivos suman $140$. 
+    ¿Cuáles son esos números?
+\end{problem}
+
+\begin{problem}[$2 \clubsuit$]
+    Ahora soy $3$ años más joven que el doble de mi edad de 
+    hace $6$ años. ¿Cuántos años tengo?
+\end{problem}
+
+\begin{problem}[AMC 2010, $2 \clubsuit$]
+    A Rodrigo le da algebritis y debe tomar una píldora verde 
+    y otra rosa diario durante dos semanas. Una pildora 
+    verde cuesta $1$ más que la pildora rosa, y las pastillas de 
+    Rodrigo costaron en total $546$ por las dos semanas. 
+    ¿Cuántos cuesta una píldora verde? 
+\end{problem}
+
+\begin{problem}[AMC 2010, $2\clubsuit$]
+    El maestro le pidió a Marcela que le restara tres a un 
+    número en particular y luego lo dividiera entre 9. En lugar de eso, 
+    Marcela la restó 9 y luego lo dividió entre 3 dándole como 
+    resultado 43. ¿Cuál era la respuesta correcta?
+\end{problem}
+
+\begin{problem}[AHSME, $2\clubsuit$]
+    Al final de 1994, Walter tenía la mitad de años que tenía su 
+    abuela. La suma de los años en que nacieron ambos es 3838. 
+    ¿Cuántos años tendrá Walter al final de 1999?
+\end{problem}
+
+\begin{dproblem}[$5 \clubsuit$]
+    ¿Cuánto es $1+2+\dots+2024+2025$?
+\end{dproblem}
+
+\begin{dproblem}[$4 \clubsuit$]
+    Encuentra el valor de $x$, $3\sqrt{x}-2=30-\sqrt{x}$.
+\end{dproblem}
+
+\begin{problem}[$4 \clubsuit$]
+    Encuentra el valor de $z$, $\cbrt{2z+1}-5+2\cbrt{2z+1}
+    =-14$.
+\end{problem}
+
+\begin{problem}[$3 \clubsuit$]
+    Encuentra el valor de $x$, $\frac{x}{x-1}+\frac{2}{3} = 
+    \frac{2}{x-1}$.
+\end{problem}
+
+\begin{problem}[AMC 2012, $2\clubsuit$]
+    Los miembros de la Liga Rockham de futbol compran calcetines 
+    y playeras. Cada par de calcetines cuesta $4$ y las playeras 
+    cuestan $5$ más que un par de calcetines. Cada miembro 
+    necesita 2 pares de calcetines y dos playeras. Si en total, 
+    gastaron $2366$, ¿cuántos miembros hay en la liga?
+\end{problem}
+
+\begin{problem}[$4 \clubsuit$]
+    Encuentra $y$, si $\sqrt[4]{y}+\sqrt[4]{16y}-2=4$
+\end{problem}
+
+\begin{problem}[UNCC, $6 \clubsuit$]
+    ¿Qué valores de $x$ satisfacen 
+    $\frac{\sqrt{x+1}+\sqrt{x-1}}{\sqrt{x+1}-\sqrt{x-1}}=3$?
+\end{problem}
+
+\begin{sproblem}[$7 \clubsuit$]
+    \jp
+
+    Para $a \in \NN$, encuentra el valor de 
+    $\sqrt{a\sqrt{a\sqrt{a\dots}}}$
+\end{sproblem}
+
+\begin{sproblem}[$7 \clubsuit$]
+    \jp
+
+    Para $a,b \in \NN$, encuentra el valor de 
+    $\sqrt{a\sqrt{b\sqrt{a\sqrt{b\dots}}}}$
+\end{sproblem}
+
+\noindent El máximo número de $\clubsuit$ en este capítulo es de $64 \clubsuit$.
+
+\subsection{Los Rifados}
+
+
+
+Hubo un empate entre dos equipos, ambos con $21 \clubsuit$.
+
+\vspace{3mm}
+
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        Diego & Alondra \\
+        Johan & Javier \\
+        Mateo & Ximena \\
+        Santiago & Yameli \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\vspace{3mm}
+
+\begin{moral}
+    \textbf{Gael} fue el \textit{máximo tronador de problemas}, 
+    sacando un total de $35 \clubsuit$.
+\end{moral}
