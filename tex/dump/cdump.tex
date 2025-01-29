@@ -1,0 +1,484 @@
+\chapter{Combo Dump}
+
+\section{Conteo}
+
+\begin{problem}[USAMO 2019/4, $3\clubsuit$]
+  Let $n$ be a nonnegative integer.
+  Determine the number of ways to choose sets
+  $S_{ij} \subseteq \{1, 2, \dots, 2n\}$,
+  for all $0 \le i \le n$ and $0 \le j \le n$
+  (not necessarily distinct), such that
+  \begin{itemize}
+  \ii $|S_{ij}| = i+j$, and
+  \ii $S_{ij} \subseteq S_{kl}$ if $0 \le i \le k \le n$
+  and $0 \le j \le l \le n$.
+  \end{itemize}
+\end{problem}
+
+Let's see each all the sets in a grid, $S_{i,j}$ will be in 
+the $i$-th column (left to right) and $j$-th row (up to down). 
+Let's fill first the $0,0$ to $n,n$ diagonal. We can do it 
+in $\frac{2n!}{2^n}$ ways. Note all the other cells have 
+$2$ options (if we fill it from left to right and up to down
+in the upper part and from right to left and up to down in the 
+bottom part). Giving us $\frac{2n!}{2^n} \times 
+2^{((n+1)^2-(n+1))} = 2n!\cdot 2^{n^2}$ as the answer.
+
+\section{Inducción} 
+\begin{problem}[JMO 2020/1, $2\clubsuit$]
+  Let $n \ge 2$ be an integer.
+  Carl has $n$ books arranged on a bookshelf.
+  Each book has a height and a width.
+  No two books have the same height,
+  and no two books have the same width.
+
+  Initially, the books are arranged in
+  increasing order of height from left to right.
+  In a \emph{move}, Carl picks any two adjacent books
+  where the left book is wider and shorter than the right book,
+  and swaps their locations.
+  Carl does this repeatedly until no further moves are possible.
+
+  Prove that regardless of how Carl makes his moves,
+  he must stop after a finite number of moves, and when he does stop,
+  the books are sorted in increasing order of width from left to right.
+\end{problem}
+
+\begin{proof}
+  We can easily use induction.
+\end{proof}
+
+\section{Invarianza}
+
+\begin{sproblem}[Canada 2018/1, $3\clubsuit$]
+  Consider an arrangement of tokens in the plane,
+  not necessarily at distinct points.
+  We are allowed to apply a sequence of moves of the following kind:
+  select a pair of tokens at points $A$ and $B$ and move
+  both of them to the midpoint of $A$ and $B$.
+  We say that an arrangement of $n$ tokens is \emph{collapsible} if it is
+  possible to end up with all $n$ tokens at the same point after a finite
+  number of moves.
+
+  Find all integers $n \ge 1$ such that:
+  every arrangement of $n$ tokens is collapsible.
+\end{sproblem}
+
+\begin{claim}
+  It is only possible for powers of $2$.
+\end{claim}
+
+\begin{proof}
+    Note that for powers of $2$ we can apply induction easily since 
+    we can just pair in any way the tokens at the beggining. \\
+    To finish, we must prove that setting one token at $(1, 0)$ 
+    and the rest at the origin is a counterexample. 
+    It's easy to check that the $x$-coordinates 
+    of all the tokens is always 
+    a fraction with a power of $2$ as denominator, 
+    and the sum of all of them is $1$. 
+    The latter means that if it the set is collapsible, 
+    the tokens must be at the $x$-coordinate $\frac 1n$ 
+    which is impossible if $n$ isn't a power of $2$.
+\end{proof}
+
+\begin{problem}[ELMO 1999/2, $2\clubsuit$]
+  Mr.\ Fat moves around on the lattice points
+  according to the following rules:
+  From point $(x,y)$ he may move to any of the points
+  $(y,x)$, $(3x,-2y)$, $(-2x,3y)$, $(x+1,y+4)$ and $(x-1,y-4)$.
+  Show that if he starts at $(0,1)$ he can never get to $(0,0)$.
+\end{problem}
+
+\begin{proof}
+  With such possible movements, the sum of the coordinates is 
+  never $0$ mod $5$.
+\end{proof}
+
+\begin{problem}[PAGMO 2021/1, $5\clubsuit$]
+  There are $n \geq 2$ coins numbered from $1$ to $n$.
+  These coins are placed around a circle, not necessarily in order.
+
+  In each turn, if we are on the coin numbered $i$,
+  we will jump to the one $i$ places from it,
+  always in a clockwise order, beginning with coin number $1$.
+
+  Find all values of $n$ for which there exists an arrangement
+  of the coins in which every coin will be visited.
+\end{problem} 
+
+  \begin{claim}
+    Only when $n$ is even.
+  \end{claim}
+
+  \begin{proof} 
+    Firstly, note that the second time we land on a coin, 
+    we have fallen on a loop. 
+    Furthermore, we have to land at the coin numbered $n$ 
+    when we already had visited the rest of coins since after the next turn, 
+    we will land another time at the coin numbered $n$. 
+
+    As a result of this, the first $n-1$ movements 
+    will have a total lenght of $1+\dots+(n-1)=\frac{n(n-1)}{2}$. 
+    If $n$ is odd, that sum will be a multiple of $n$ which means 
+    we will land at the coin numbered $1$ generating a loop.
+
+    If $n$ is even, it's easy to check that the following arrangement works:
+
+    \begin{itemize}
+      \ii Place the coin numbered $1$;
+
+      \ii next to it, all the odd coins in ascending counterclockwise order;
+      
+      \ii on the other side of the coin numbered $1$, all the even coins 
+      in descending clockwise order.
+    \end{itemize}
+
+  \end{proof}
+
+\begin{problem}[Russia 2022/9.3, $3\clubsuit$]
+  Suppose $200$ positive integers are written in a row.
+  For any two adjacent numbers in a row, the right one is
+  either $9$ times greater than or $2$ times smaller than the left one.
+  Can the sum of these $200$ numbers equal $24^{2022}$?
+\end{problem}
+
+  Let the numbers in the row be $a_1$, \dots, $a_{200}$. 
+  Note that $a_i \equiv 2 a_{i+1}$ mod $17$ always holds; thus, 
+  $\sum a \equiv a_{200} (2^{200}-1) \equiv 24^{2022}$ mod $17$. 
+  This is impossible because $17 \mid 2^{200}-1$ but not $24^{2022}$; 
+  hence, a contradiction.
+
+\begin{problem}[$3\clubsuit$]
+  The numbers $1, 2, \dots, 1000$ are written on the board.
+  In a turn, one can erase any two numbers $a$ and $b$
+  and replace them with $ab$ and $a^2+b^2$.
+  Prove that it is impossible to get at least $700$
+  identical numbers by performing such operations.
+\end{problem}
+
+\begin{proof}
+  Checking that the number of multiples of $3$ in the board 
+  is invariant, is pretty straightforward; therefore, at most 
+  667 numbers can be identical.
+\end{proof}
+
+\begin{problem}[USAMTS 4/1/31, $5\clubsuit$]
+  A group of $100$ friends stands in a circle.
+  Initially, one person has $2019$ mangoes, and no one else has mangoes.
+  The friends split the mangoes according to the following rules:
+  \begin{itemize}
+  \ii sharing: to share, a friend passes two mangoes to the left
+  and one mango to the right.
+  \ii eating: the mangoes must also be eaten and enjoyed.
+  However, no friend wants to be selfish and eat too many mangoes.
+  Every time a person eats a mango, they must also pass another mango to the right.
+  \end{itemize}
+  A person may only share if they have at least three mangoes,
+  and they may only eat if they have at least two mangoes.
+  The friends continue sharing and eating,
+  until so many mangoes have been eaten that no one is able to share or eat anymore.
+  Show that there are exactly eight people stuck with mangoes,
+  which can no longer be shared or eaten.
+\end{problem} 
+
+\begin{proof}
+  Label the friends from the person with $2019$ mangoes 
+  (labeled  with $0$) to the right. Let $m_i$ be the number of 
+  mangoes the person labeled with $i$ has. Note that the residue 
+  of $\sum 2^im_i$ mod $2^{100} - 1$ is invariant; hence, always 
+  2019. The sharing ends when each friend has $1$ or $0$ mangoes. 
+  Over this conditions, the only way of making the defined sum 
+  $\equiv 2019$ mod $2^{100}-1$ is to represent $2019$ in it's 
+  binary unique representation which has $8$ $1$'s.
+\end{proof}
+
+\section{Monovarianza}
+
+\begin{problem}[Canada 2012, $5\clubsuit$]
+  A number of robots are placed on the squares of a finite, rectangular
+  grid of squares. A square can hold any number of robots. Every edge of
+  each square of the grid is classified as either passable or impassable.
+  All edges on the boundary of the grid are impassable. You can give any
+  of the commands up, down, left, or right.
+
+  All of the robots then simultaneously try to move in the specified
+  direction. If the edge adjacent to a robot in that direction is
+  passable, the robot moves across the edge and into the next square.
+  Otherwise, the robot remains on its current square. You can then give
+  another command of up, down, left, or right, then another, for as long
+  as you want. Suppose that for any individual robot, and any square on
+  the grid, there is a finite sequence of commands that will move that
+  robot to that square. Prove that you can also give a finite sequence of
+  commands such that all of the robots end up on the same square at the
+  same time.
+\end{problem}
+
+\begin{claim}
+  Two robots can meet in a finite number of commands.
+\end{claim}
+
+\begin{proof}
+  Let their minimum distance be the shortest path for 
+  getting from the initial square of $R_1$ to the initial 
+  square of $R_2$. Make $R_1$ follow this path. Note that 
+  the new minimum distance between the same robots is greater 
+  or equal than the old one. Since the grid is finite, if we  
+  keep repeting this process, the minimum distance 
+  will keep decreasiing (otherwise the second robot 
+  would be pushen out of the limits of the grid); hence, 
+  the minimum distance will eventually became $0$.
+\end{proof}
+
+Repeat this process and meet robots $1$ by $1$ (if two robots 
+meet, we can just focus in one robot since the other will 
+do exactly the same).
+
+\section{Recursión}
+
+\begin{problem}[USAMO 1996/4, $3\clubsuit$]
+  An $n$-term sequence $(x_1, x_2, \dots, x_n)$
+  in which each term is either $0$ or $1$ is called a binary sequence of length $n$.
+  Let $a_n$ be the number of binary sequences of length $n$ containing
+  no three consecutive terms equal to $0$, $1$, $0$ in that order.
+  Let $b_n$ be the number of binary sequences of length $n$ that
+  contain no four consecutive terms equal to 0, 0, 1, 1 or 1, 1, 0, 0 in that order.
+  Prove that $b_{n+1} = 2a_n$ for all positive integers $n$.
+\end{problem}
+
+\begin{proof}
+  Note that if we translate a binary string and it's inverse 
+  to gray code, the result will be the same except by the first 
+  digit. And, a string of lenght $n+1$ that contains $0011$ or 
+  $1100$ in gray code, will always have a $010$ substring in 
+  it's last $n$ digits. Thus, $\frac{2^{n+1}-b_{n+1}}{2} = 2^{n}-a_n$ 
+  which finishes the problem.
+\end{proof} 
+
+\section{Construcciones}
+
+Vamos a jugar minecraft muchachos.
+
+\begin{problem}[Tuymaada 2018/J6, $3\clubsuit$]
+  The numbers $1, 2, \dots, 1024$ are written on a blackboard.
+  The following procedure is performed ten times:
+  partition the numbers on the board into disjoint pairs,
+  and replace each pair with its nonnegative difference.
+  Determine all possible values of the final number.
+\end{problem}
+
+\begin{claim}
+  If there is an even number of odd numbers, 
+  after applying the procedure, the number of odd numbers is 
+  still even. 
+\end{claim}
+
+\begin{proof}
+  Let's try to demonstrate the contrary. For that, 
+  take a fixed odd number of even-odd pairs (since it's the only 
+  way to get an odd difference) and pair the remaining 
+  odd numbers with another odd number. Note that we have an 
+  odd number of odd numbers remaining so the later is impossible.
+\end{proof}
+
+Since we start with an even number of odd numbers, the claim 
+implies the final number is always even (since 1 isn't even). 
+
+\begin{claim}
+  The answer is all even numbers between $0$ and $1022$.
+\end{claim}
+
+\begin{proof}
+  Obviously an even number $\ge 1024$ doesn't work. 
+  Use the following construction for obtaining the desired 
+  even difference, $2k$:
+
+  \begin{enumerate}
+    \ii Pair $(1, 2 + 2k)$ and consecutive numbers. 
+    \ii After the first procedure, we will get the numbers 
+    $1+2k$ $1$, $\dots$, $1$.
+    \ii Pair in any way you want.
+    \ii It will result in $2k$, $0$, $\dots$, $0$.
+    \ii Repeat $3$ and $4$ until all the $0$'s dissapear.
+  \end{enumerate}
+\end{proof}
+
+\begin{problem}[USAMO 2021/4, $5\clubsuit$]
+  A finite set $S$ of positive integers has the property that,
+  for each $s\in S$, and each positive integer divisor $d$ of $s$,
+  there exists a unique element $t\in S$ satisfying $\gcd(s,t) = d$.
+  (The elements $s$ and $t$ could be equal.)
+
+  Given this information, find all possible values for the
+  number of elements of $S$.
+\end{problem}
+
+It's easy to see that the number of divisors of each element 
+of $S$ is the cardinality of the set.
+
+\begin{claim}
+  if $p \mid s \implies p^2 \nmid s$ for every prime $p$.  
+\end{claim}
+
+\begin{proof}
+  Suppose the contrary, it exists a prime $p$ such that 
+  $p^{\alpha} \mid s$ for an $\alpha \ge 2$. 
+  Note that an element has to be of the form 
+  $k\frac{s}{p}$ with a $k$ such that $(k, s) = 1$ in order to
+  get $\frac{s}{p}$ when pairing it with $s$. Let the function $d$ 
+  denote the number of divisors of a number $\implies 
+  d(s) = d(k\frac{s}{p}) = 
+  d(k) \cdot d(\frac{s}{p}) = d(k) \cdot d(s) \cdot 
+  \frac{\alpha}{\alpha + 1} \implies 1 = d(k) \cdot 
+  \frac{\alpha}{\alpha + 1} \implies  d(k) = 
+  \frac{\alpha + 1}{\alpha}$. Hence, a contradiction because 
+  $\frac{\alpha + 1}{\alpha}$ isn't an integer.
+\end{proof}
+
+Furthermore, every $s$ is formed by the product of $x$ distinct 
+primes for a fixed $x$.
+
+\begin{claim}
+  $0$ and the non-negative powers of $2$ are all the 
+  possible cardinalities.
+\end{claim}
+
+\begin{proof}
+  We will proceed by induction. Obiously $0$ works. 
+  When the cardinality is $1$, $S = {1}$ works, that is our 
+  inductive base. Assume that it works for the set $S$ whose 
+  cardinality is $2^n$. Then, we can create a new set 
+  $S' = S\times p \cup S\times q$ where $p$ and $q$ are primes 
+  which aren't factors of any of the element of $S$. 
+  For each $s \in S$, if we pair (by pairing I refer to 
+  computing the gcd of two numbers) $sp$ with each element of 
+  $S'$ we will get all it's divisors since by pairing it 
+  to an element of $S \times q$ we get all the divisors of $s$ 
+  and by pairing it with an element of $S\times p$ we get 
+  all the divisors of $s$ multiplied by $p$ which are all the 
+  factors of $sp$. This makes $S'$ fullfill the condition with 
+  $2^{n+1}$ elements completing our inductive step. 
+\end{proof}
+
+\begin{problem}[USAMO 2022/5, $9\clubsuit$]
+  A function $f \colon \RR \to \RR$ is
+  \emph{essentially increasing}
+  if $f(s) \leq f(t)$ holds
+  whenever $s\leq t$ are real numbers such that $f(s)\neq 0$ and $f(t)\neq 0$.
+
+  Find the smallest integer $k$ such that
+  for any $2022$ real numbers $x_1$, $x_2$, \dots, $x_{2022}$,
+  there exist $k$ essentially increasing functions $f_1, \dots, f_k$ such that
+  \[ f_1(n) + f_2(n) + \dotsb + f_k(n) = x_n
+  \qquad \hbox{ for every } n = 1, 2, \dots, 2022. \]
+\end{problem}
+
+Consider a non-fixed $m$ instead of $2022$.
+
+\begin{claim}
+  $k \ge \ceiling{log_2 m}$.
+\end{claim}
+
+\begin{proof}
+  Suppose the contrary. Take extrictly decreasing values for 
+  the $x$'s. There are at most $2^{k}$ distict binary strings 
+  for the $m$ possible values of $n$ (A $0$ in the $x$-th 
+  position will represent $f_x = 0$ and a $1$ every other number); 
+  hence one binary string appears twice by the pigeonhole 
+  principle. Say the $x$'s with the same string are $x_a$,  $x_b$. 
+  WLOG $a > b \implies \sum f_i(a) > \sum f_i(b)$; hence 
+  a contradiction since the functions are esentially increasing.
+\end{proof}
+
+We can construct inductively an arrangemnent for 
+$k = \ceiling{log_2 m}$ as it follows 
+(k = 3 in the following example): 
+\begin{center}
+  \begin{tabular}{c|c|c|c|}
+    $n$ & $f_1(n)$ & $f_2(n)$ & $f_3(n)$ \\
+    \hline 
+    $1$ &  &  & 0 \\
+    \hline
+    $2$ &  &  & 0 \\  
+    \hline
+    $3$ &  &  & 0 \\
+    \hline
+    $4$ & $2C$ & $C$ & $x_4 -3C$ \\
+    \hline
+    $5$ & $2C$ & 0 & $x_5 -2C$ \\
+    \hline
+    $6$ & 0 & $C$ & $x_6 -C$ \\
+    \hline
+    $7$ & 0 & 0 & $x_7$ \\
+    \hline
+  \end{tabular}
+\end{center}
+
+Fill the blank spaces with the previous $k$ and choose a 
+gigantic constant $C$ the $f$'s keep being essentially 
+increasing.
+
+\section{Juegos}
+
+\begin{problem}[ELMO SL 2019 C1, $3\clubsuit$]
+  Let $n \ge 3$ be a fixed positive integer.
+  Elmo is playing a game with his clone.
+  Initially, $n\geq 3$ points are given on a circle.
+  On a player's turn, that player must draw a triangle
+  using three unused points as vertices, without creating any crossing edges.
+  The first player who cannot move loses.
+  If Elmo's clone goes first and players alternate turns,
+  which player wins for each $n$?
+\end{problem}
+
+If $n$ is odd, the clone can make a triangle such that in one arc has no 
+points and in the other two have the exact same amount of points; 
+if $n$ is even, make a triangle such that in one arc has 
+one point and in the other two arcs have the exact same amount 
+of points. Note that from then, the clone can reflect Elmo's 
+triangles ensuring his win for all $n$.
+
+\begin{problem}[Shortlist 2009 C1, $9\clubsuit$]
+  Consider $2009$ cards, each having one gold side and one black side,
+  lying on parallel on a long table.
+  Initially all cards show their gold sides.
+  Two players, standing by the same long side of the table,
+  play a game with alternating moves.
+  Each move consists of choosing a block of $50$ consecutive cards,
+  the leftmost of which is showing gold, and
+  turning them all over,
+  so those which showed gold now show black and vice versa.
+  The last player who can make a legal move wins.
+
+  \begin{enumerate}[(a)]
+  \ii Does the game necessarily end?
+  \ii Does there exist a winning strategy for the starting player?
+  \end{enumerate}
+\end{problem}
+
+  The game always end since we can translate the colour of the 
+  cards into a binary string which always reduces. 
+
+  From here, label the cards from left to right. 
+  Note that in each turn, exactly one of the cards labeled with 
+  $\{10, 60, \dots, 1960\}$ increases or decreases by 
+  exactly one. Since there are $40$ elements in that set, and 
+  all the cards in the set need to be black for the game to 
+  finish, the game needs an even number of turns to reach an end; 
+  hence, player one can't win. 
+
+\section{ndump}
+
+\begin{problem}[PAGMO 2021/4, $2\clubsuit$]
+  Lucy multiplies some positive one-digit numbers (not necessarily distinct)
+  and obtains a number $n$ greater than $10$.
+  Then, she multiplies all the digits of $n$ and obtains an odd number.
+  Find all possible values of the units digit of $n$.
+\end{problem}
+
+  $5$ works since $3 \times 5 = 15$. Of course any even digit 
+  can't divide $n$. Then, assume $n = 3^a \times 7^b$. 
+  Note that $3^a \times 7^b \equiv 21^{b} \times 3^{a-b} \equiv 
+  3^{a-b}$ mod $20$. Every power of $3$ has a residue smaller 
+  than $10$ mod $20$; thus, it's impossible for every digit 
+  other than $5$.  
