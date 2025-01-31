@@ -1,0 +1,332 @@
+\chapter{Conteo I, el Comienzo}
+
+¡Bienvenido seas al área que en mi opinión representa mejor a la olimpiada! 
+Aquella donde la creatividad siempre está presente y las soluciones 
+hermosas abundan. Empecemos con un problema:
+
+Una araña fue invitada a la boda de su amiga la hormiga. 
+En la mañana antes del evento, se vió en un gran problema: 
+vestirse. Como quiere ir formal (y además sentirse bonita), 
+se pondrá mallas y tacones en cada una de las ocho patas. 
+Si todas las mallas, al igual que los tacones, son 
+indistinguibles entre si, y además debe ponerse la malla 
+antes del tacón en cada pata, ¿de cuántos órdenes distintos 
+se puede vestir?
+
+Revisemos un poco de teoría para poder resolver esta belleza :)
+
+\section{Dos Principios Fundamentales}
+
+\begin{example}
+    Un platillo en un restaurante consta de una sopa y una 
+    ensalada. Si ofrecen $5$ sopas distintas y $4$ ensaladas 
+    distintas, ¿de cuántas formas puedes pedir tu platillo?
+\end{example}
+
+El \textbf{principio fundamental del conteo (PFC)} dice que si 
+hay $n$ maneras de hacer una tarea y $m$ maneras de hacer una 
+segunda tarea, entonces el total de formas distintas de hacer 
+ambas tareas a la vez es $n \times m$.
+
+\begin{example}
+    En el mismo restaurante, ofrecen de postre helado o una 
+    rebanada de pastel (no se permite ordenar ambos). Si hay $7$ 
+    sabores de helado y $3$ pasteles distintos, ¿de cuántas 
+    formas puedes pedir tu postre? 
+\end{example}
+
+El \textbf{principio de la suma (PS)} dice que si 
+hay $n$ maneras de hacer una tarea y  hay otras $m$ maneras de 
+hacer esa misma tarea, entonces el total de formas distintas de 
+hacer dicha tarea es $n + m$.
+
+Muchos problemas de combinatoria se pueden resolver aplicando 
+estos dos simples principios. Incluso fórmulas más avanzadas 
+tan solo son extensiones de estas reglas.
+
+\section{Permutaciones}
+
+\begin{definition}[$n!$]
+    Leido "$n$ factorial", es el producto de todos los enteros 
+    positivos menores o iguales al entero positivo $n$.
+\end{definition}
+
+\begin{definition}[Permutación]
+    Es un reacomodo donde importa el orden.
+\end{definition}
+
+\begin{example}
+    ¿De cuántas formas se pueden permutar las cinco letras 
+    $ABCDE$?
+\end{example}
+
+\begin{theorem}[Permutaciones de los $n$ objetos disponibles]
+    Dados $n$ objetos distintos, la cantidad de permutaciones 
+    entre sí es igual a 
+    \[n!.\]
+\end{theorem}
+
+\begin{example}
+    ¿Cuántas palabras distintas de tres letras se pueden 
+    obtener al permutar las letras de la palabra $FERMAT$?
+\end{example}
+
+\begin{theorem}[Permutaciones de $k$ objetos de los $n$ disponibles]
+    Dados $n$ objetos disponibles donde se quiere permutar $k$ 
+    de ellos, la cantidad de maneras de hacer esto es 
+    \[\frac{n!}{(n-k)!}.\]
+\end{theorem}
+
+Pero, ¿que hay de la palabra $GAUSS$? Al inicio podrías pensar 
+que la respuesta es $5!$, pero es en realidad $\frac{5!}{2}$.
+
+\begin{question}
+    ¿Por qué?    
+\end{question}
+
+Más allá, pensarías que la palabra $LEGENDRE$ tiene 
+$\frac{8!}{3}$ formas de permutarse, pero son $\frac{8!}{6}$.
+
+\begin{question}
+    ¿Por qué?    
+\end{question}
+
+\begin{example}
+    ¿De cuántas formas se pueden permutar las letras de la 
+    palabra $MISSISSIPPI$
+\end{example}
+
+El ejemplo de arriba es un problemas de permutaciones con 
+repeticiones, la formula es fácil de recordar haciendo ejemplos, 
+pero escrita formalmente es:
+
+\begin{theorem}[Pemutaciones con repeticiones]
+    Dada una colección $n$ pelotas que son indistinguibles 
+    excepto por su color, si hay $a_i$ pelotas del color $i$, 
+    entonces el número de formas de acomodar las pelotas en 
+    una fila es de 
+    \[
+    \frac{\left(a_1+a_2+\dots+a_n\right)!}{a_1!a_2!\dots a_n!}.
+    \]
+\end{theorem}
+
+\section{Bonus}
+
+\subsection{Solución al Problema de la Araña}
+
+Resolvamos el problema del inicio. Asígnemosle una letra a 
+cada pata de la señorita araña; digamos que las letras son 
+$ABCDEFGH$. Nótese que cada "orden" que siga la araña 
+se puede traducir a una cadena de instrucciones donde la 
+aparición de la instrucción $X$ significa que se va a poner una 
+prenda en la pata a la que se le fue asignada aquella letra. Nótese 
+que cada $X$ aparece exactamente dos veces, puesto 
+que la primera vez que aparece, se pone la malla y la segunda, 
+el tacón. Entonces, nuestra respuesta es la cantidad de 
+permutaciones de la cadena $AABBCCDDEEFFGGHH$, que es 
+\[\frac{16!}{2^8}.\]
+
+La idea de transformar un problema a otro equivalente es 
+ampliamente utilizada en la combinatoria de olimpiadas. 
+Particularmente, veremos otros ejemplos muy interesantes de 
+traducir problemas a cadenas de caracteres la siguiente clase.   
+
+\subsection{Datos Extra}
+
+Al principio fundamental del conteo también se le conoce como 
+principio de la multiplicación o principio multiplicativo. 
+Mientras que al principio de la suma también se le conoce como 
+principio aditivo.
+
+Por acuerdo, el valor de $0!$ es $1$.
+
+Un buen razonamiento combinatórico depende MUCHOO de saber 
+cuando sumar, multiplicar o dividir.
+
+\begin{moral}
+    ¡CUIDA NO CONTAR DE MÁS!
+\end{moral}
+
+\newpage
+
+\section{Problemas}
+
+Cada problema que resuelvas te dará el número de treboles 
+que especifica ($x \clubsuit$), ¡colecta los más que puedas!
+
+\epigraph{Todo está muchas veces, catorce veces, pero dos cosas hay en el 
+mundo que parecen estar una sola vez: arriba, el intricado sol; abajo, 
+Asterión}{Jorge Luis Borges, en La casa de Asterión}
+
+\begin{problem}[$2 \clubsuit$]
+    ¿Cuántos números positivos de 3 dígitos hay? ¿Cuántos 
+    números enteros de tres o menos cifras hay?
+\end{problem}
+
+\begin{problem}[$2 \clubsuit$]
+    Se quiere escoger un libro de entre 3 materias: matemáticas, historia 
+    y biología. Hay 6 libros de Matemáticas, 9 de Historia y 4 de Biología. 
+    ¿Cuántas opciones para escoger un libro tenemos?
+\end{problem}
+
+\begin{problem}[$2 \clubsuit$]
+    ¿Cuántas contraseñas de $4$ dígitos se pueden formar?
+\end{problem}
+
+\begin{problem}[$2 \clubsuit$]
+    ¿Cuántas palabras se pueden escribir usando todas las letras de la 
+    palabra ZACATECAS?
+\end{problem}
+
+\begin{problem}[$2 \clubsuit$]
+    ¿De cuántas formas puedes acomodar $5$ libros en un 
+    estante?
+\end{problem}
+
+\begin{problem}[$2 \clubsuit$]
+    ¿De cuántas formas se pueden acomodar 3 libros de álgebra, 
+    2 de combinatoria y 3 de teoría de números en un estante?
+\end{problem}
+
+\begin{problem}[$3 \clubsuit$]
+    En una examen hubo $6$ problemas. Si cada concursante 
+    los resolvió en un orden distinto, ¿cuál es el máximo 
+    numero de competidores en aquella olimpiada?
+\end{problem}
+
+\begin{problem}[$2 \clubsuit$]
+    ¿Cuántas palabras de seis letras se pueden formar si 
+    solo se dispone de un alfabeto con dos letras: a y b?
+\end{problem}
+
+\begin{dproblem}[$3 \clubsuit$]
+    ¿Cuántos subconjuntos tiene un conjunto de $n$ elementos?
+\end{dproblem}
+
+\begin{problem}[OMMEB 2017, $3 \clubsuit$]
+    Dada la lista de números \(1, 2, 3, 4, 5, 6, 7, 8, 9\) 
+    una sublista se forma tomando al menos un número de la 
+    lista y ordenar de menor a mayor. Por ejemplo \(1, 2, 8\) 
+    es una sublista. Encuentra la cantidad de sublistas en las 
+    que ninguno de los números \(2, 3, 5\) o \(7\) aparecen.
+\end{problem}
+
+\begin{problem}[$2 \clubsuit$]
+    De cuántas formas se puede escoger un presidente, 
+    vicepresidente y secretario en un grupo de $7$ personas.
+\end{problem}
+
+\begin{problem}[$3 \clubsuit$]
+    ¿Cuántos números de $4$ dígitos hay tales que el primer 
+    dígito es impar y el resto pares si todos los dígitos 
+    son distintos entre si?
+\end{problem}
+
+\begin{problem}[$2 \clubsuit$]
+    ¿Cuántos números capicua de $5$ dígitos hay? Un número 
+    capicua es aquel que se lee igual de izquierda a 
+    derecha que de derecha a izquierda.
+\end{problem}
+
+\begin{problem}[$4 \clubsuit$]
+    Al cumpleañero de la fiesta anterior ya le compraste su 
+    regalo, pero falta la envoltura. La caja en la que irá puede 
+    ser chica, mediana o grande. Si se elige la chica, ésta 
+    puede ser de 5 colores diferentes; si se elige la mediana, 
+    de 3 y si se elige la grande, de 6. Si independientemente 
+    del tamaño, la caja puede llevar o no un moño, ¿de cuántas 
+    formas diferentes puede ser la envoltura del regalo?
+\end{problem}
+
+\begin{problem}[$4 \clubsuit$]
+    Las ciudades de Nápoles, Venecia, Roma y Florencia están 
+    unidas entre ellas. A cada dos de ellas las unen 7 caminos 
+    diferentes. ¿De cuántas formas se puede ir de Venecia a
+    Florencia sin pasar dos veces por la misma ciudad?
+\end{problem}
+
+\begin{problem}[$6 \clubsuit$]
+    Claudia quiere pintar las 5 paredes de su habitación. 
+    Ha comprado 12 colores diferentes de pintura. ¿De cuántas 
+    formas puede pintar su habitación? ¿Y si no quiere que 2 
+    paredes juntas tengan el mismo color? ¿Y si no quiere 2 
+    paredes del mismo color?
+\end{problem}
+
+\begin{problem}[$6 \clubsuit$]
+    La calculadora de Ale perdió las teclas 0, 1 y 2. En ella, 
+    puede escribir un número de hasta 8 dígitos. ¿Cuántos 
+    números distintos puede escribir en ella? ¿Y si quiere 
+    escribir un número de 6 dígitos que tenga un único dígito 
+    5? ¿Y si quiere uno de 4 dígitos que tenga un único 5 y un 
+    único 4?
+\end{problem}
+
+\begin{problem}[$4 \clubsuit$]
+    A, B, C y D toman cada uno una ficha distinta de dominó. 
+    Notan que la cantidad de puntos en cada ficha que tomaron 
+    es la misma. ¿De cuántas formas es esto posible?
+\end{problem}
+
+\begin{problem}[OMMEB 2019, $3 \clubsuit$]
+    Un píxel está formado por $3$ leds: uno rojo, uno verde y uno azul, 
+    donde cada uno puede prender con $4$ intensidades de luminosidad 
+    diferentes (además de que pueden estar apagados). Cada configuración 
+    de estos tres leds determina el color del píxel. ¿Cuántas 
+    configuraciones hay con el led azul prendido?
+\end{problem}
+
+\begin{problem}[$4 \clubsuit$]
+    ¿Cuántos números de 20 cifras se pueden formar utilizando los dígitos 
+    $1$, $2$ y $3$ si la diferencia entre dos cifras consecutivas debe ser 
+    siempre exactamente de $1$?
+\end{problem}
+
+\begin{problem}[$4 \clubsuit$]
+    ¿Cuántos números de 4 cifras tienen exactamente un 8 entre sus dígitos?
+    ¿Cuántos tienen al menos un 8?
+\end{problem}
+
+\begin{problem}[$3 \clubsuit$]
+    ¿De cuántas maneras se pueden colocar ocho torres en un tablero de 
+    ajedrez de manera que no se ataquen entre ellas?
+\end{problem}
+
+\begin{problem}[$4 \clubsuit$]
+    Edgardo y sus otros $5$ amigos van al cine. Al llegar a la sala, 
+    se percatan de que hay $12$ filas de $7$ asientos cada una. Si quieren 
+    todos sentarse en una misma fila, pero Edgardo no puede sentarse al 
+    lado de Rodrigo, ¿de cuántas formas pueden escoger sus asientos?
+\end{problem}
+
+\begin{problem}[OMMEB 2017, $4 \clubsuit$]
+    Encuentra la cantidad de enteros positivos de cinco dígitos 
+    distintos tales que cada uno de sus tres dígitos intermedios 
+    es igual al promedio de sus dos dígitos adyacentes. 
+    Un ejemplo de estos números es \(12345\).
+\end{problem}
+
+\begin{problem}[OMMEB 2017, $6 \clubsuit$]
+    Sea $M$ el conjunto \(1, 2, 3, \ldots , 2017\). Para cada 
+    subconjunto $A$ de $M $se denota por $S_A$ a la suma de 
+    todos los elementos de $A$. Calcula el promedio de todos 
+    los números $S_A$.
+\end{problem}
+
+\begin{problem}[USAMO 2019/4, $7\clubsuit$]
+    \jp
+
+    Sea $n$ un entero no negativo.
+    Determina el número de formas de escoger los conjuntos
+    $S_{ij} \subseteq \{1, 2, \dots, 2n\}$,
+    para todo $0 \le i \le n$ y $0 \le j \le n$
+    (no necesariamente distintos), tal que
+    \begin{itemize}
+    \ii $|S_{ij}| = i+j$, y
+    \ii $S_{ij} \subseteq S_{kl}$ si $0 \le i \le k \le n$
+    y $0 \le j \le l \le n$.
+    \end{itemize}
+\end{problem}
+
+\noindent El máximo número de $\clubsuit$ en este capítulo es de 
+$89 \clubsuit$.
