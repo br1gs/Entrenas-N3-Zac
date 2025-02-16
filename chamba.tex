@@ -3,8 +3,8 @@
 \input{chambapreamble}
 \input{chambamacros}
 
-\title{tiscachamba}
-\subtitle{\url{}}
+\title{Entrenas N3 Zac}
+\subtitle{\url{https://github.com/br1gs/Entrenas-N3-Zac}}
 \author{Bruno González}
 \date{\today}
 
@@ -15,11 +15,12 @@
 
 \bgroup
 \fboxrule=4pt
-\noindent\fbox{\includegraphics[width=\textwidth]{cover.jpg}}
+\noindent\fbox{\includegraphics[width=\textwidth]{bu.jpg}}
 \egroup
 \newpage
 
 \setcounter{chapter}{-1} % avoid sales pitch collision
+\include{notation}
 
 % I DON'T want to reset the page number for mainmatter,
 % so save it to restore later
@@ -33,15 +34,10 @@
 
 \include{olyintro}
 \include{strat}
-
-\part{Álge}
-
-
-\part{Combi}
-
-\part{Geo}
-
-\part{Núms}
+\include{algbasics}
+\include{countingi}
+\include{angles}
+\include{numstrat}
 
 \backmatter
 
